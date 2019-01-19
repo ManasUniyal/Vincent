@@ -23,7 +23,7 @@ public class LoginPage extends AppCompatActivity {
     private TextView textView;
     private EditText emailField;
     private EditText passwordField;
-    private TextView LoginField;
+    private Button LoginField;
     private FirebaseAuth mAuth;
 
     @Override
@@ -35,7 +35,7 @@ public class LoginPage extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
         emailField=(EditText)findViewById(R.id.email);
         passwordField=(EditText)findViewById(R.id.password);
-        LoginField=(TextView) findViewById(R.id.mLogin);
+        LoginField=(Button) findViewById(R.id.mLogin);
 
         LoginField.setOnClickListener(new View.OnClickListener() {
             @Override

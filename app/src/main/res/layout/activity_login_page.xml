@@ -69,14 +69,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
+            <Button
                 android:id="@+id/mLogin"
-                android:layout_width="280dp"
-                android:layout_height="35dp"
-                android:layout_centerInParent="true"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="@android:color/black"
                 android:text="Login"
-                android:textAlignment="center"
-                android:layout_centerVertical="true"
                 android:textColor="@android:color/white" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
