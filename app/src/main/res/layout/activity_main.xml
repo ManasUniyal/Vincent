@@ -26,7 +26,18 @@
         app:searchSuggestionIcon="@drawable/ic_suggestion"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
-        />
+        >
+
+    </com.miguelcatalan.materialsearchview.MaterialSearchView>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/myList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="60dp"
+        android:background="@android:color/background_light"></android.support.v7.widget.RecyclerView>
 
 
 </RelativeLayout>
