@@ -149,6 +149,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/open_sans_bold"
+        android:paddingLeft="5dp"
         android:text="More Like This"
         android:textSize="18sp"
         android:textStyle="bold"

@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -31,11 +32,49 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView myList;
     private DatabaseReference mReference;
     private StorageReference mStorage;
+    private Button MovieButton;
+    private Button TvButton;
+    private Button OVAButton;
+    private Button SpecialButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MovieButton=(Button)findViewById(R.id.MovieButton);
+        TvButton=(Button)findViewById(R.id.TvButton);
+        OVAButton=(Button)findViewById(R.id.OVAButton);
+        SpecialButton=(Button)findViewById(R.id.SpecialButton);
+
+        MovieButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatabaseReference mref=FirebaseDatabase.getInstance().getReference().child("Anime");
+                setList(mref.orderByChild("type").equalTo("Movie"));
+            }
+        });
+        TvButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatabaseReference mref=FirebaseDatabase.getInstance().getReference().child("Anime");
+                setList(mref.orderByChild("type").equalTo("TV"));
+            }
+        });
+        OVAButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatabaseReference mref=FirebaseDatabase.getInstance().getReference().child("Anime");
+                setList(mref.orderByChild("type").equalTo("OVA"));
+            }
+        });
+        SpecialButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatabaseReference mref=FirebaseDatabase.getInstance().getReference().child("Anime");
+                setList(mref.orderByChild("type").equalTo("Special"));
+            }
+        });
         mReference= FirebaseDatabase.getInstance().getReference().child("Anime");
         mStorage= FirebaseStorage.getInstance().getReference();
         myList=(RecyclerView) findViewById(R.id.myList);
@@ -45,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         searchView = (MaterialSearchView)findViewById(R.id.search_view);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Material Search");
+        getSupportActionBar().setTitle("Vincent");
         toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
     //    ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
         searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {

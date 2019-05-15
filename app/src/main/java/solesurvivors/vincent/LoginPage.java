@@ -75,7 +75,7 @@ public class LoginPage extends AppCompatActivity {
                     }
                     else
                     {
-                        Toast.makeText(getApplicationContext(),"error",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Invalid Email/Password",Toast.LENGTH_LONG).show();
                     }
                 }
             });

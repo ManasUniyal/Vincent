@@ -87,7 +87,8 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                     else
                     {
-                        Toast.makeText(getApplicationContext(),"error",Toast.LENGTH_LONG).show();
+
+                        Toast.makeText(getApplicationContext(),"Invalid Email\n Try Again",Toast.LENGTH_LONG).show();
                         mProgress.dismiss();
                     }
                 }

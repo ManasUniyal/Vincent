@@ -29,7 +29,7 @@
                 android:ems="10"
                 android:hint="E-mail address"
                 android:inputType="textPersonName"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/black" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 
@@ -102,7 +102,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:background="@android:color/black"
-                android:text="SignUp"
+                android:text="Sign Up"
                 android:textColor="@android:color/white"
                 android:visibility="visible" />
         </RelativeLayout>
@@ -116,5 +116,13 @@
         android:layout_alignParentTop="true"
         android:layout_margin="40dp"
         app:srcCompat="@drawable/logo_transparent" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp" />
 
 </RelativeLayout>
