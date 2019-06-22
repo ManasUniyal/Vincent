@@ -13,16 +13,21 @@
             android:name=".MainActivity"
             android:label="Vincent" >
 
+
+
         </activity>
         <activity android:name=".LoginPage" />
         <activity android:name=".RegisterActivity" />
         <activity
             android:name=".SplashScreen" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+
         </activity>
 
         <meta-data

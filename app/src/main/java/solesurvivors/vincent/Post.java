@@ -3,6 +3,7 @@ package solesurvivors.vincent;
 public class Post {
 
     private String name,rating;
+    private int Index;
     public Post(){
 
     }
@@ -21,5 +22,13 @@ public class Post {
 
     public void setRating(String rating) {
         this.rating = rating;
+    }
+
+    public int getIndex() {
+        return Index;
+    }
+
+    public void setIndex(int index) {
+        Index = index;
     }
 }

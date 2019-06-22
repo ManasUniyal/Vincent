@@ -81,33 +81,44 @@ public class AnimeInfoPage extends AppCompatActivity {
                 Iterable<DataSnapshot> anime_Children = dataSnapshot.getChildren();
                 ArrayList<Pair<String,Float>> track_it = new ArrayList<Pair <String,Float>>();
                 for(DataSnapshot anime_child : anime_Children) {
-                    Map<String, Object> map = new HashMap<String, Object>();
 
-                    GenericTypeIndicator<Map<String, Object>> genericTypeIndicator = new GenericTypeIndicator<Map<String, Object>>() {};
-                    map =(HashMap<String, Object>) anime_child.getValue(genericTypeIndicator );
-                    String mkey=anime_child.getKey();
-                    String mgenre=  (String) map.get("genre").toString();
-                    String mrating = (String)map.get("rating").toString();
-                    String mname = (String)map.get("name").toString();
-                    float float_rating;
-                    if(mrating.compareToIgnoreCase("nan")==0)
-                        float_rating=0.0f;
-                    else
-                        float_rating = Float.parseFloat(mrating);
-                    String text[] = mgenre.split(", ");
-                    String pattern[] = genre.split(", ");
-                    //System.out.println("asdads   "+mgenre);
-                    float score=float_rating*5;
-                    for(int i=0;i<text.length;i++) {
-                        for (int j = 0; j < pattern.length; j++) {
-                            if (name.compareToIgnoreCase(mname) == 0) {
-                                continue;
-                            } else if (text[i].compareToIgnoreCase(pattern[j]) == 0) {
-                                score += 100;
+                    try {
+
+
+                        Map<String, Object> map = new HashMap<String, Object>();
+
+                        GenericTypeIndicator<Map<String, Object>> genericTypeIndicator = new GenericTypeIndicator<Map<String, Object>>() {
+                        };
+                        map = (HashMap<String, Object>) anime_child.getValue(genericTypeIndicator);
+                        String mkey = anime_child.getKey();
+                        String mgenre = (String) map.get("genre").toString();
+                        String mrating = (String) map.get("rating").toString();
+                        String mname = (String) map.get("name").toString();
+                        float float_rating;
+                        if (mrating.compareToIgnoreCase("nan") == 0)
+                            float_rating = 0.0f;
+                        else
+                            float_rating = Float.parseFloat(mrating);
+                        String text[] = mgenre.split(", ");
+                        String pattern[] = genre.split(", ");
+                        //System.out.println("asdads   "+mgenre);
+                        float score = float_rating * 5;
+                        for (int i = 0; i < text.length; i++) {
+                            for (int j = 0; j < pattern.length; j++) {
+                                if (name.compareToIgnoreCase(mname) == 0) {
+                                    continue;
+                                } else if (text[i].compareToIgnoreCase(pattern[j]) == 0) {
+                                    score += 100;
+                                }
                             }
                         }
+                        track_it.add(new Pair<String, Float>(mkey, score));
+
                     }
-                    track_it.add(new Pair<String,Float>(mkey,score));
+                    catch (Exception e)
+                    {
+                        e.printStackTrace();
+                    }
 
 
                 }

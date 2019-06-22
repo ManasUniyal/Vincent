@@ -81,6 +81,14 @@ public class RegisterActivity extends AppCompatActivity {
                         UserData.child("Image").setValue("default");
                         mProgress.dismiss();
 
+
+
+                        for(int i=0;i<3000;i++)
+                        {
+                            UserData.child(Integer.toString(i)).setValue(0.0);
+                        }
+
+
                         Intent mainIntent = new Intent(RegisterActivity.this,MainActivity.class);
                         mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(mainIntent);
@@ -88,12 +96,18 @@ public class RegisterActivity extends AppCompatActivity {
                     else
                     {
 
-                        Toast.makeText(getApplicationContext(),"Invalid Email\n Try Again",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Invalid Details\n Try Again",Toast.LENGTH_LONG).show();
                         mProgress.dismiss();
                     }
                 }
             });
         }
+
+
+
+
+
+
     }
 
 }
