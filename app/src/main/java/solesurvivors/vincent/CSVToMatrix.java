@@ -38,7 +38,6 @@ public class CSVToMatrix {
         int r2=(int)m2.size();
         int c2=(int)m2.get(0).size();
         double ans;
-        //System.out.println(r1+" "+c1+" "+r2+" "+c2);
         ArrayList<ArrayList<Double>> matrix = new ArrayList<ArrayList<Double>>();
         for(int i=0;i<r1;i++){
             ArrayList<Double> v = new ArrayList<>();
@@ -61,6 +60,15 @@ public class CSVToMatrix {
             }
         }
         return m1;
+    }
+
+    public ArrayList<ArrayList<Double>> sigmoid(ArrayList<ArrayList<Double>> m){
+        for(int i=0;i<(int)m.size();i++){
+            for(int j=0;j<(int)m.get(i).size();j++){
+                m.get(i).set(j, m.get(i).get(j) / (1 + Math.exp(-m.get(i).get(j))));
+            }
+        }
+        return m;
     }
 
     private void printMatrix(ArrayList<ArrayList<Double>> m){
@@ -107,10 +115,13 @@ public class CSVToMatrix {
 
         inputToBeModified=multiply(f1,inputToBeModified);
         inputToBeModified=addition(inputToBeModified,b1);
+        inputToBeModified=sigmoid(inputToBeModified);
         inputToBeModified=multiply(f2,inputToBeModified);
         inputToBeModified=addition(inputToBeModified,b2);
+        inputToBeModified=sigmoid(inputToBeModified);
         inputToBeModified=multiply(f3,inputToBeModified);
         inputToBeModified=addition(inputToBeModified,b3);
+        inputToBeModified=sigmoid(inputToBeModified);
         inputToBeModified=multiply(f4,inputToBeModified);
         inputToBeModified=addition(inputToBeModified,b4);
 

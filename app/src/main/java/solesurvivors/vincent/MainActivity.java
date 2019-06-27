@@ -32,6 +32,7 @@ import com.google.firebase.storage.StorageReference;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.squareup.picasso.Picasso;
 
+import java.io.IOException;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -88,23 +89,12 @@ public class MainActivity extends AppCompatActivity {
 
 
                 }
-                /*try {
-                    CSVToMatrix obj = new CSVToMatrix(MainActivity.this);
-                    double[] output = obj.getFinalMatrix();
-                    for(int i=0;i<2990;i++) {
-                        mReference.child(Integer.toString(i)).child("KeyRating").setValue(output[i]*-1);
-                        Log.d("CHECK",i+"  "+output[i]);
 
-                    }
 
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }*/
-
-                for(int i=0;i<=2991;i++) {
+                /*for(int i=0;i<=2991;i++) {
                     mReference.child(Integer.toString(i)).child("KeyRating").setValue(userRating[i]*-1);
 
-                }
+                }*/
                /*DatabaseReference mref=FirebaseDatabase.getInstance().getReference().child("Anime");
                setList(mref.orderByChild("KeyRating"));*/
 
@@ -129,6 +119,22 @@ public class MainActivity extends AppCompatActivity {
         ResultButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                try {
+                    CSVToMatrix obj = new CSVToMatrix(MainActivity.this);
+                    double[] output = obj.getFinalMatrix();
+                    for(int i=0;i<2990;i++) {
+                        mReference.child(Integer.toString(i)).child("KeyRating").setValue(output[i]*-1);
+                        Log.d("CHECK",i+"  "+output[i]);
+
+                    }
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+
+
                 DatabaseReference mref=FirebaseDatabase.getInstance().getReference().child("Anime");
                 setList(mref.orderByChild("KeyRating"));
             }
